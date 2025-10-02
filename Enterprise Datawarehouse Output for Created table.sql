@@ -1,0 +1,26 @@
+
+Select * from Patient; 
+select *from Provider;
+select * from Department;
+select * from ProviderDepartment;
+select* from Appointment ;
+select * from Encounter;
+select * from Diagnosis;
+select * from ProcedureCode;
+select distinct * from Medication;
+select distinct *from LabTest ;
+select distinct * from EncounterDiagnosis;
+select * from  EncounterProcedure ;
+select distinct * from Prescription;
+select distinct * from MedicationAdministration ;
+select distinct * from LabResult;
+select distinct * from Allergy;
+select distinct * from PatientAllergy;
+select distinct * from Payer;
+select distinct * from InsurancePlan ;
+select distinct *from Claim;
+select * from idx_encounter_patient_admit ;
+select * from idx_appointment_provider_dt  ;
+select * from  idx_labresult_encounter_test ;
+select * from  idx_encdiag_diag ;
+select * from  idx_rx_encounter_medication ;
