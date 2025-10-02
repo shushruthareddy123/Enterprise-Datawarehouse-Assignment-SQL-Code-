@@ -241,3 +241,13 @@ ORDER BY month_key, payer, plan;
 
 -- View
 -- SELECT * FROM v_claims_trend_monthly;
+CREATE OR REPLACE VIEW v_appointment_noshow_rate_monthly AS
+SELECT
+  d.name AS department,
+  DATE_FORMAT(a.appt_dt, '%Y-%m') AS month_key,
+  COUNT(*) AS total_appts,
+  SUM(a.status = 'NoShow') AS noshows,
+  ROUND(100.0 * SUM(a.status = 'NoShow') / NULLIF(COUNT(*),0), 2) AS noshow_rate_pct
+FROM Appointment a
+JOIN Department d ON d.department_id = a.department_id
+GROUP BY d.name, DATE_FORMAT(a.appt_dt, '%Y-%m');
